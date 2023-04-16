@@ -17,6 +17,7 @@
   display: flex;
   align-items: center;
   background-color: #f2f2f2;
+  overflow: hidden;
 }
 
 /* ниже мы привели пример двух селекторов, чтобы вы вспомнили запись элемента */
@@ -28,24 +29,29 @@
   position: absolute;
   right: 0;
   top: 64px;
+  background-size: contain;
+}
+
+.logo {
+  width: 228px;
+  height: 32px;
+  object-fit: contain;
 }
 
 .logo_place_header {
   position: absolute;
   top: 30px;
   left: 64px;
-  width: 228px;
-  height: 32px;
-  object-fit: contain;
 }
 
-.header-title {
+.header__title {
   width: 730px;
   padding-left: 64px;
   font-weight: 600;
   font-size: 102px;
   line-height: 96px;
   z-index: 4;
+  margin: 0;
 }
 
 .header__subtitle {
@@ -57,9 +63,10 @@
   font-size: 18px;
   font-weight: normal;
   z-index: 3;
+  margin: 0;
 }
 
-.header__subtitle_link {
+.header__link {
   text-decoration: none;
   color: #2f80ed;
 }
@@ -71,6 +78,7 @@
   width: 765px;
   height: 608px;
   z-index: 2;
+  object-fit: cover;
 }
 
 .description {
@@ -86,7 +94,7 @@
   margin-top: 100px;
 }
 
-.two-columns_brief {
+.two-columns__brief {
   width: 175px;
   margin: 0;
   font-size: 18px;
@@ -95,7 +103,7 @@
   color: #2f80ed;
 }
 
-.two-columns_paragraph {
+.two-columns__paragraph {
   line-height: 34px;
   font-size: 24px;
   font-weight: normal;
@@ -106,25 +114,19 @@
   margin-bottom: 0;
 }
 
-.two-columns_span-accent {
+.two-columns__span-accent {
   line-height: 34px;
   font-size: 24px;
   font-weight: 600;
 }
 
-.two-columns_main-text {
+.two-columns__main-text {
   display: flex;
   width: 80%;
   min-width: 784px;
   flex-direction: column;
 }
 
-.two-columns__brief_link {
-  text-decoration: none;
-  line-height: 1.2;
-  font-size: 18px;
-  font-style: normal;
-}
 .digits {
   margin: 100px auto;
 }
@@ -133,19 +135,13 @@
   display: flex;
   justify-content: space-between;
   width: 1100px;
-  margin: auto;
+  margin: 0 auto;
   flex-wrap: wrap;
 }
 
 .table__cell {
   width: 250px;
   margin-top: 60px;
-  z-index: 3;
-}
-
-.table__cell p:last-child {
-  margin-bottom: 0;
-  margin-top: 20px;
 }
 
 .section-title {
@@ -178,7 +174,7 @@
   font-weight: normal;
 }
 .feynman {
-  height: 890px;
+  min-height: 890px;
   display: flex;
   position: relative;
   background-color: #f2f2f2;
@@ -205,7 +201,7 @@
   height: 637px;
   width: 867px;
 }
-.feynman-title {
+.feynman__title {
   line-height: 1.15;
   font-size: 120px;
   font-weight: 600;
@@ -215,7 +211,7 @@
   text-align: center;
   padding-top: 100px;
 }
-.feynman-subtitle {
+.feynman__subtitle {
   margin: 70px 0 0;
   line-height: 51px;
   font-size: 36px;
@@ -237,69 +233,80 @@
   top: 0;
   width: 877px;
   height: 877px;
+  background-image: url(/images/kaufman-triangle.svg);
   z-index: 1;
-  object-fit: contain;
+  background-size: contain;
 }
 
 .table__text_theme_dark {
-  color: #f2f2f2;
+  color: #fff;
 }
 
 .table__heading_theme_dark {
-  color: #f2f2f2;
+  color: #fff;
 }
 
 .section-subtitle_theme_dark {
-  color: #f2f2f2;
+  color: #fff;
   z-index: 3;
 }
 
 .section-title_theme_dark {
-  color: #f2f2f2;
-
+  color: #fff;
   position: relative;
   z-index: 2;
+}
+.table_theme_dark {
+  z-index: 3;
+  position: relative;
 }
 
 .table__cell_theme_dark {
   margin-top: 80px;
   width: 200px;
-  color: #f2f2f2;
+  color: #fff;
   margin-right: 0;
 }
 
 .footer {
   background-color: #1f1f1f;
   padding: 60px 0 40px;
+  min-height: 350px;
+  display: flex;
+  box-sizing: border-box;
 }
 
 .footer__columns {
-  margin: auto;
+  margin: 0 auto;
   width: 90%;
-
-  min-height: 350px;
   position: relative;
   display: flex;
   justify-content: space-between;
 }
-.footer__content {
-  flex-basis: 711px;
+.footer__column {
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
+}
+.footer__column_content_copyright {
+  flex-basis: 711px;
+  justify-content: space-between;
+}
+
+.footer__column_content_info {
+  color: #f2f2f2;
+}
+.footer__column_content_social {
+  color: #f2f2f2;
 }
 
 .logo_place_footer {
   width: 228px;
   height: 32px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  object-fit: contain;
 }
 
 .footer__author {
-  color: #f2f2f2;
-  margin: 16px 0;
+  color: #fff;
+  margin: 18px 0;
   line-height: 25px;
   font-size: 18px;
   font-weight: normal;
@@ -315,11 +322,10 @@
   line-height: 30px;
   font-size: 18px;
   font-weight: normal;
-  color: #f2f2f2;
+  color: #fff;
   text-decoration: none;
 }
 .footer__column-heading {
-  color: #f2f2f2;
   line-height: 30px;
   font-size: 18px;
   font-weight: 600;
