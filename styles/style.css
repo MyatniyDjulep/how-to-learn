@@ -110,7 +110,7 @@
   margin: 0 0 30px;
 }
 
-.two-columns_paragraph:last-of-type {
+.two-columns__paragraph:last-of-type {
   margin-bottom: 0;
 }
 
@@ -233,7 +233,7 @@
   top: 0;
   width: 877px;
   height: 877px;
-  background-image: url(/images/kaufman-triangle.svg);
+  background-image: url(../images/kaufman-triangle.svg);
   z-index: 1;
   background-size: contain;
 }
@@ -293,10 +293,10 @@
 }
 
 .footer__column_content_info {
-  color: #f2f2f2;
+  color: #fff;
 }
 .footer__column_content_social {
-  color: #f2f2f2;
+  color: #fff;
 }
 
 .logo_place_footer {
